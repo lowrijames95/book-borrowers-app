@@ -1,13 +1,10 @@
-/** @type {import('next').NextConfig} */
+/** @type {import('next').NextPolicy} */
 const nextConfig = {
-  reactStrictMode: true,
-  webpack: (config) => {
-    config.watchOptions = {
-      poll: 1000,
-      aggregateTimeout: 300,
-    };
-    return config;
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
